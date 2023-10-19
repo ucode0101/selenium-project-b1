@@ -1,4 +1,4 @@
-package com.ucode_academy.test;
+package com.ucode_academy.test.day_01_selenium_intro;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
