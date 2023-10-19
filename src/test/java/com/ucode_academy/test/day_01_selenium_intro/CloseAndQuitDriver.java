@@ -13,8 +13,11 @@ public class CloseAndQuitDriver {
 
         // maximize browser/window
         driver.manage().window().maximize();
+
+        // Browser window full screen mode
+        //driver.manage().window().fullscreen();
         // wait for 4 seconds
-        Thread.sleep(4000);
+        Thread.sleep(7000);
 
         // close the current browser/tab
         //driver.close();

@@ -1,0 +1,149 @@
+Class note 10/18/2023
+
+
+Today's topic:
+
+Selenium introduction(Continue)
+Maven Introduction
+
+Create Selenium Project 
+
+Write automation test (using java and selenium)
+
+===========================================================
+
+
+What is Apache Maven and why do we need as a Tester/SDETs?
+
+Maven is a build and project management tool.
+Maven is a build automation tool.
+Maven is mainly used to java-based project (can also be used with other languages)
+Maven helps us automate, create and manage project.
+pom.xml file is one of the most important part of Maven Project.
+
+When we need to download any tools, jar files we just add depency to tool in pom.xml and maven downloads and store all the jar file for us
+Maven create a folder called .m2 and download all the jar file when we add depdendancy
+
+Maven allows us to add and mangage dependancies in a singe file (pom.xml).
+
+What is Dependancy?
+Depency is a Jar file that we to add to our project to add additional tools
+such as Selenium WebDriver, TestNG, JUnit and many more.
+
+What is jar file?
+Jar file contains all the interferces, classes, and methods.
+
+Are they any other tools like Mave?
+Yes, Gradle, Ant are two other popular build automation tools.
+
+Maven is a Build automation tool.
+Maven is a Build System too.
+
+--------------------------------------------------------------
+
+Create Selnium Project.
+
+How to create Selnium project in InteliJ IDEA?
+
+1. In InteliJ IDEA click on File
+2. Click on New -> Project 
+3. Give Project -> Select Java as programming Language
+4. Select Location (if want in different directory)
+4. Build System -> select Maven
+5. Advance settings -> grouId -> com.ucodeacademy
+6. Artifactid -> leave as is
+7. click on create
+
+---------------------------------------------------
+
+Maven Repository -> https://mvnrepository.com/
+-> is central repository where we get all our dependancies for our project
+
+-------------------------------------------------------------------
+
+How to run our selenium automation code/test?
+
+Before we can run our selnium automation code/test, we need to set up WebDriver.
+
+If we want to run our selenium automation in Chrome browser or any other browser, we need to set the driver. Browser driver is used to connect our selenium java code to that specific browser.
+
+WebDriver methods:
+
+get("url")--> this method is used to navigate to specified URL in web browser.
+This the first method/step we use to open URL in a browser 
+
+getTtitle(); -> this method is used to return the title of the current 
+                page as a String
+
+
+getCurrentUrl(); -> this method is used to get/return the current url of the page
+                    as a String.
+
+getPageSource(); -> this method is used to get/return the source of the current 
+                    page as a String 
+
+
+How to maximaze the browser window?
+
+driver.manage().window().maximize();
+-> these methods used to maximize browser window.
+
+SELENIUM NAVIGATIONS
+back -> takes to previous page
+forward -> takes us to forwarded page 
+refresh -> refreshes the page
+to -> takes user to another given url.
+
+Syntax:
+driver.navigate().to("Url");
+driver.navigate().back();
+driver.navigate().forward;  
+driver.navigate().refresh();
+
+-----------------------------------------------
+
+close(); -> This method is used close the current browser/tab, bud doesn't end
+            the WebDriver session. If you have multiple tabs/windows open it will
+            close only one tab/window that the driver is in curretly, and it does not end the WebDriver session
+
+quit(); -> This method is used to quit/exist WebDriver session and close all 
+           browsers/tab
+
+
+close() vs quit():
+close() will close the current tab/windows, but doesn't end the WebDriver session
+quit() quits/exits the WebDriver session, and closes all tabs/windows
+
+fullscreen(); -> this method is used to full screen your window. It puts the 
+                 browser in full-screen mode
+driver.manage().window().fullscreen();
+
+maximize() vs fullscreen()?
+
+maximize(); -> it will maximize your browser/window, but you will see the browser
+               close, minimize, and maximize buttons.
+fullscreen(); -> it will put your browser/window in full-screen mode, you will 
+               not see close, minimize, and maximize buttons.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
