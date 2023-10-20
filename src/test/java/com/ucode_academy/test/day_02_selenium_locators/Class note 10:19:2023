@@ -1,0 +1,159 @@
+Class note 10/19/2023
+
+Package name -> day_02_selenium_locators
+
+Today's topic:
+
+
+Selenium Locators 
+findElement() method
+findElements() method (if we have enough time)
+click() method
+sendKeys() method
+
+----------------------
+
+What is Selenium (Selenium Webdriver) ?
+
+Selenium is automation tool that we use to automate web based application.
+Selenium supports mulitple programming lunguages such as Java, Python, JS and more
+Selenium supports Windows, Mac OS, Linux Operating systems.
+Selenium supports Major browsers such as Chrome, FireFox, Safar, Edge and others
+Selenium is an open source (it's free)
+
+
+
+What is Maven?
+
+Maven is built automation tool.
+Maven helps us automate, create and Manage project
+Maven is mainly used for Java projects, and supports other programming lunguage
+
+pom.xml file is one of most important part of Maven, it allows us to add and manage all dependancise in a single (pom.xml)
+
+
+Is Maven automation testing tool?
+No, it is not. Maven is build automation tool (for developer)
+But as Automation Engineers/SDET we Maven you manage our project
+
+To find .m2 in Mac -> click onb GO -> Go To folder -> in search ~/.m2
+
+---------------------------------------------------------
+
+Locators:
+
+What is locator?
+A locator is way to identify elements on a page.
+We use locator to find/locate web element in the web page
+
+
+There are 8 different type of Locators.
+
+1. ID -> to locate web element by id -> id="idValue"
+2. Name -> to locate web element by name  -> name="nameValue"
+3. class Name -> to locate web element by class name -> class="classValue"
+4. link Text -> to locate web element by link text <a >link text</a>
+5. partial link text -> to locate web element by partial link text <a >link 
+                        text</a>
+6. Tag name -> locate web element by tag name -> <div>, <h1>, <a>
+
+7. css selctor -> to lcoate web element based on their styles and attributes
+8. xpath -> to locate web element by xpat. 
+   There are two type of xpath: Absolute xpath & Relative xpath
+
+
+-----------------------------------------------------------------
+
+
+Why do you use/need locators?
+Before your selenium automation code can perform some action on the web page such click, enter some text, etc.., we need to find the web element using of 1 of 8 locators and then selenium can perfom some action on located web wlement
+
+What is Web element?
+Any thing that we see on the web page such links, button, inputs, text area
+
+
+
+findElement(); -> this method is used to find and return a single web element
+                  return type WebElement. If it does not find the web element, 
+                  it will throw NoSuchElementException. If there are more than one web element, it will return the first one
+
+Ex: WebElement element = driver.findElement(By.id("id"));
+
+
+click(); -> this method is used to click on Web Element, like clicking with mouse
+
+elment.click()
+
+
+
+=================================================================
+
+
+Locating web elemnt by ID is always recommanded becuase ID is usually unique for that specific web element
+
+
+sendKeys("text"); -> this method String parameter and enter/type text in 
+                     inpu/field/text are
+
+ex: inputElement.sendKeys("text"); 
+
+
+getText(); -> this method is used to get the text from web element  inner text ->
+              ex: <a>text</a>
+
+
+getAttribute("attribute"); -> this method takes attribute as a string, and
+                          returns its value as a String. Return type is String 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
