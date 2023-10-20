@@ -4,7 +4,6 @@ Package name -> day_02_selenium_locators
 
 Today's topic:
 
-
 Selenium Locators 
 findElement() method
 findElements() method (if we have enough time)
