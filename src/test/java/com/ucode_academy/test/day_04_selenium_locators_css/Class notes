@@ -1,0 +1,35 @@
+Locators:
+
+cssSelector -> to locate web element based on their styles and attributes
+
+-----------------------------------------------------------------
+
+cssSelector -->
+   Basic Selectors:
+     Tag: driver.findElements(By.cssSelector("p")) - selects all <p> elements.
+     ID: driver.findElement(By.cssSelector("#myId")) - selects the element with id="myId".
+     Class: driver.findElement(By.cssSelector(".myClass")) - selects the element with class="myClass".
+
+   Combinator for cssSelector:
+       driver.findElements(By.cssSelector("div p")) - selects all <p> elements inside a <div>.
+       Child: driver.findElements(By.cssSelector("div > p")) - selects all <p> elements that are direct children of a <div>.
+
+   Attribute Selectors (more commonly used):
+       Presence: driver.findElement(By.cssSelector("[disabled]")) - selects elements with the disabled attribute.
+       Exact Match: driver.findElement(By.cssSelector("[name='username']")) - selects elements with a name attribute of "username".
+       Starts With: driver.findElement(By.cssSelector("[name^='user']")) - selects elements with a name attribute starting with "user".
+       Ends With: driver.findElement(By.cssSelector("[name$='name']")) - selects elements with a name attribute ending with "name".
+       Contains: driver.findElement(By.cssSelector("[name*='user']")) - selects elements with a name attribute containing "user".
+
+   Parent-child:
+       First Child: driver.findElement(By.cssSelector("p:first-child")) - selects the first <p> element among its siblings.
+       Last Child: driver.findElement(By.cssSelector("p:last-child")) - selects the last <p> element among its siblings.
+       Nth Child: driver.findElement(By.cssSelector("p:nth-child(2)")) - selects the second <p> element among its siblings.
+
+   Key notes while locating with cssSelector:
+        -   CSS selectors are generally faster than XPath.
+            However, for very complex selectors, performance might degrade, so it's a good practice to keep your selectors as simple and specific as possible.
+        -   The more specific your CSS selector is, the less likely it will break with changes to the webpage.
+        -   While you can use indexes (like :nth-child(2)) to locate elements, it's generally a bad practice because the order of elements can change.
+
+   Practice locating elements with cssSelector using the Cheat Sheet
