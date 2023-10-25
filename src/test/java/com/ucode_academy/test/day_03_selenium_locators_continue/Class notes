@@ -1,0 +1,55 @@
+Locators:
+
+    class Name -> to locate web element by class name -> class="classValue"
+
+    link Text -> to locate web element by link text <a >link text</a>
+
+    partial link text -> to locate web element by partial link text <a >link
+                        text</a>
+    Tag name -> locate web element by tag name -> <div>, <h1>, <a>
+
+-----------------------------------------------------------------
+!!!This class was not recorded due to technical issues. Please watch the short videos
+
+className -->
+   - The className selector allows you to find elements based on the class attribute of HTML elements.
+   - Useful when you want to select elements that share the same styling or behavior, as they are likely to have the same class attribute.
+   - Syntax:
+            driver.findElement(By.className('class_name'));
+            driver.findElements(By.className('class_name')); -> will return a list of elements sharing the same class name
+   - Class name selectors ARE case-sensitive
+   - If a class name contains whitespace, it usually indicates multiple classes for that element, like:
+        class="mr-sm-2 form-control"
+        The className selector above will not work if you provide the entire string; you need to provide a single class name.
+   - Preferable to have a unique or less commonly used class name
+   - Usually faster than using more complex selectors like XPath or CSS selectors
+
+
+ tagName -->
+    - Allows you to find elements based on their HTML tag name, such as div, a, input, span, etc
+    - Syntax:
+                driver.findElement(By.tagName('li'));
+                driver.findElements(By.tagName('li')); -> get all elements with a specific tag name
+    - Since many elements can share the same tag name, the tagName selector is often non-unique.
+    - The tagName selector is case-insensitive, meaning By.tagName("DIV") and By.tagName("div") are equivalent.
+    - Generally fast because it directly maps to native browser methods for element retrieval.
+
+
+   linkText and partialLinkText -->
+       linkText:
+       - Finds an anchor element (<a>) with the exact visible text provided.
+       - Syntax:
+                driver.findElement(By.linkText("Click me"));
+       - It requires an exact match of the visible text
+       - The linkText selector is case-sensitive. If you provide "click me", it will target different link
+
+       partialLinkText:
+       - same as linkText but matches any part of the visible text.
+       - Syntax:
+                       driver.findElement(By.partialLinkText("Click")); -> it would match both "Click me" and "Please Click here".
+       - Like linkText, the partialLinkText selector is also case-sensitive.
+       - If the text of a link changes dynamically (e.g., "Logout (Kudrat)"), using partialLinkText might be more appropriate than linkText.
+
+
+
+
