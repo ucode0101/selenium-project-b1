@@ -11,6 +11,11 @@ Locators:
 -----------------------------------------------------------------
 !!!This class was not recorded due to technical issues. Please watch the short videos
 
+Link for practice:
+https://demoqa.com/
+https://the-internet.herokuapp.com/
+http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx
+
 className -->
    - The className selector allows you to find elements based on the class attribute of HTML elements.
    - Useful when you want to select elements that share the same styling or behavior, as they are likely to have the same class attribute.

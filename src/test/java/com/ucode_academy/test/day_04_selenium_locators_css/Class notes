@@ -4,6 +4,11 @@ cssSelector -> to locate web element based on their styles and attributes
 
 -----------------------------------------------------------------
 
+Link for practice:
+https://demoqa.com/
+https://the-internet.herokuapp.com/
+http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx
+
 cssSelector -->
    Basic Selectors:
      Tag: driver.findElements(By.cssSelector("p")) - selects all <p> elements.
