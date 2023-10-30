@@ -1,0 +1,97 @@
+Class Note 10/30/2023
+
+Today's topic:
+Xpath & CSS Locators
+
+----------------------------------------------------
+
+Xpath vs CSS Locators
+
+xpath -> you can locate by text
+CSS -> you cannot locate by text
+xpat -> you can go forward and backward
+CSS -> you can go only forward
+
+CSS is faster than xpath
+
+-------------------------------------------
+
+When you try to locate the web element, ID is recommended, because it's usually uinque and it's faster.
+---------------------------------------
+
+Xpath -> you can create your own custom locator
+
+Xpath is one of the locator that we use to locate web element 
+it's usefull when web element is not unique, it allows to create a custom locators
+
+Dynamic vs Static web elements
+
+Dynamic web element -> when web element's value keeps changing
+Static web element -> Web element's value does not change
+
+
+Xpath types:
+Absoloute and Relative 
+When you use xpath, it's recommended to use Relative xpath, because Absolute xpath is not reliable
+
+
+When we use xpath to locate web element * mean anywhere for example
+
+//*[class='value1'] star (*) means any tag/any tag name here
+It is not recommended to use * is you know the tag name
+
+or 
+//div[*='value2'] star(*) means any attribute/any attrubute name
+It is not recommended to use * if you know the Attribute name
+
+
+If you want to go to the following child
+//div/h2
+
+--------------------------------------------------------
+
+isDisplayed(); -> This method is used to check if web element is visible on the page. It return boolean, if it's visible/displayed it return true else it returns false. First we need to locate the web element and use isDisplayed() method to and do some action based on condition
+
+------------------------------------------------------------
+
+Following syntax is used for locating elements containing exact text within an element
+ text() -> this method is used to web element that has the matching text
+ text() -> this is used insted of attribute without using @ sign
+
+//TagName[text()=‘exact text’] 
+  OR 
+ dot (.) is exactly the same as using text() method
+//TagName[.=‘exact text’]
+
+
+If there are multiple tags inside one tag, they are called parent and child/children. And if we want to start from parent tag and go to the following child tag, we use single slash /
+For exalmple //
+
+
+How do you locate Dynamic Web elements?
+Using contains, start-with or ends-with
+
+Cotains is used when some part of the value doesn't change 
+In bellow example it is used to locate web element with partial text
+
+//TagName[contains(text(),‘matching text’)] -> It looks for matching text
+
+We can also use it to locate web element with dynamic attribute value
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
