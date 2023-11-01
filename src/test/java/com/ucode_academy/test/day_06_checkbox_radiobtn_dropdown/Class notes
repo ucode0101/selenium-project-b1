@@ -1,0 +1,144 @@
+Locating elements:
+Checkboxes
+Radio buttons
+Dropdowns
+---------
+Upload/Download
+Alerts
+Modals
+Browser Window
+Frames/Nested Frames
+Interactions(drag-n-drop, sort, etc)
+*Stale Element Reference Exception
+TestNG
+
+-----------------------------------------------------------------
+
+Link for practice:
+https://demoqa.com/
+https://the-internet.herokuapp.com/
+http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx
+
+Focus Logger JS:
+(bookmark it to easy access)
+javascript: (function() { if (!window.logFocus) { console.log('Start logFocus', document.activeElement); window.logFocus = setInterval(function() { if (window.lastFocus !== getActiveElement()) { console.log(getActiveElement()); window.lastFocus = getActiveElement(); } }, 250); } else { console.log('End logFocus'); clearInterval(window.logFocus); window.logFocus = null; } var getActiveElement = function(document) { document = document || window.document; if (document.body === document.activeElement || document.activeElement.tagName == 'IFRAME') { var iframes = document.getElementsByTagName('iframe'); for (var i = 0; i < iframes.length; i++) { var focused = getActiveElement(iframes[i].contentWindow.document); if (focused !== false) { return focused; } } } else return document.activeElement; }; })();
+
+-> Checkboxes and radio buttons
+        - checkbox:
+            - allows for multiple selection
+            - checkboxes act independently from each other
+        - radio buttons:
+            - allows only one of the options to be selected
+            - the reason is, the radio button options are acting as a group
+
+
+        HOW DO WE HANDLE CHECKBOXES AND RADIO BUTTONS USING SELENIUM?
+        - We locate, and we click on them.
+
+        -> isSelected()
+            - This method checks if the checkbox/radiobutton is selected or not selected.
+            - The return type of this method is: boolean
+            - If the checkbox/radio button is selected --> isSelected()--> true
+                                                                    else --> false
+        -> isEnabled()
+            - This method checks if the checkbox/radiobutton is enabled to be clicked.
+            - The return type of this method is: boolean
+            - If the checkbox/radiobutton is clickable/enabled --> isEnabled -> true
+                                                                    else --> false
+
+        syntax: driver.findElement(LOCATOR).isSelected();
+        syntax: driver.findElement(LOCATOR).isEnabled();
+
+
+-> Dropdowns
+
+        HOW MANY TYPES OF DROPDOWN ARE THERE?
+
+        1- Select dropdowns: are created by using <select> tag in HTML
+
+            <select>
+                <option value="1"> ORANGE </option>
+                <option value="2"> APPLE </option>
+                <option value="3"> KIWI </option>
+            </select>
+
+        2- HTML dropdowns: these are the dropdowns that are created NOT USING <select>
+            - These dropdowns are handled just like any other webElement.
+
+        What can be tested about a dropdown?
+            - What is selected by default?
+            - What options are avaiable in the dropdown?
+            - When you select an option, is it selected?
+
+
+        How do we handle SELECT dropdowns using Selenium?
+            1- We need to locate the dropdown using findElement();
+            2- We need to create an object of Select class. (Select from Selenium Library)
+            3- We need to pass the located webElement into Select object
+
+
+        Syntax #1:
+            WebElement dropdown = driver.findElement(LOCATOR);
+            Select select = new Select(dropdown);
+
+            select. --> do some actions on dropdown
+
+        Syntax #2:
+
+            Select select = new Select(driver.findElement(LOCATOR));
+
+        How do we actually select an option from DROPDOWN?
+            - There are 3 ways of selecting options.
+                1- selectByVisibleText(String arg);
+
+                    - This method accepts a String argument
+                    - And selects the option with the given text
+
+                    syntax:
+
+                    select.selectByVisibleText("Option 1");
+
+                2- byIndex(int arg);
+                    - This method accepts an int argument as the index number of the option
+                    - Indexes start from 0. So always thing about that if you are using this method.
+
+                    <select>
+                        <option value="1"> ORANGE </option>  	index 0
+                        <option value="2"> APPLE </option>		index 1
+                        <option value="3"> KIWI </option>		index 2
+                    </select>
+
+                    syntax: for selecting KIWI option
+
+                    select.byIndex(2); --> this will select KIWI option
+                    select.byIndex(0); --> this will select ORANGE option
+
+                3- byValue:
+                    - This method uses the value of the attribute "value" to select options.
+
+                    <select>
+                        <option value="1"> ORANGE </option>  	index 0
+                        <option value="2"> APPLE </option>		index 1
+                        <option value="3"> KIWI </option>		index 2
+                    </select>
+
+                    syntax:
+                        select.byValue("2"); --> This will select APPLE option
+                        select.byValue("3"); --> This will select KIWI option
+
+
+        ====> .getFirstSelectedOption() --> this method returns the selected option.
+                -> Useful for getting the default value of option of a dropdown
+                -> You can also select something, and get the value using the method.
+
+
+        ====> .getOptions();
+                -> This method will return all the options in given select dropdown
+                -> Return type: List<WebElement>
+
+        ====> .getAllSelectedOptions();
+                -> This will return all of the selected options as a WebElement.
+                -> This is useful when you have a dropdown that allows you to select multiple options
+
+        ====> .deSelectAll();
+                -> This will deselect all the options that are selected.
