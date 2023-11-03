@@ -2,15 +2,6 @@ Locating elements:
 Checkboxes
 Radio buttons
 Dropdowns
----------
-Upload/Download
-Alerts
-Modals
-Browser Window
-Frames/Nested Frames
-Interactions(drag-n-drop, sort, etc)
-*Stale Element Reference Exception
-TestNG
 
 -----------------------------------------------------------------
 
