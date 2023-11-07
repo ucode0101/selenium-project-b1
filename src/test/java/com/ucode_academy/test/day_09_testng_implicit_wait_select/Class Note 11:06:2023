@@ -1,0 +1,113 @@
+
+Class Note 11/06/2023
+
+Package name -> day_09_testng_implicit_wait_select
+
+Today's topic:
+
+TestNG Annotations & Assertion
+
+
+Implicit wait
+
+--------------------------------------------------------------------------
+
+TestNG Stand for Test Next Generation. It is  popular Java-Based testing framework
+that is used for Unit Testing.
+
+When we provide @test annotation on top of java/test method, it will be recognized as TestNG test, and we can run it without the main method
+
+
+  @Test -> this annotation is used to make a java method as testNG test, and we are able to run it without the main method.
+
+  Every method/test method need to have this @Test annoation so can be recognized as test.
+
+We can have many tests in one Java class.
+When you have multiple test in one Class, you can either run all at once from class level or you can run them one by one from the method level.
+
+  @BeforeMethod -> This runs before each method/test for example if we have 10 tests/method it will run once before each method/test. If you have some repeated action that you need to take before each method/test such login, you can use  @BeforeMethod annotation once, and it will run before each test/method.
+
+@AfterMehtod -> This runs after each method/test for example if we have 10 tests/methods it will run after each methods/test. If you have some repeated action that we need to take after each method/test such as log out, you can @AfterMehtod annotation to take care of it.
+
+
+
+@BeforeClass -> This runs before class for example if we have to take some action before each class such driver set we can you can use this annotation.
+
+@AfterClass -> This run after  class for example if we have to take some action after each class such as driver quit/close driver you can this annotation
+
+@Ignore -> This annotation is used to ignore a method/test. When you have @Ignore on top of @Test annoation that test/method will not be run/will be igonred
+
+
+How do you ignore/avoid running test/some test?
+You can use @Ignore annotation to ignore any test that you don't want to run.
+
+
+
+---------------------------------------------------------
+
+Priority / Prioritize tests.
+
+By default TestNG test are run in alphabetical/ascending order.
+In order to prioritize execution of our tests we need to priority helper method
+sytax: -> @Test(priority=number) it start running from lower numbers to higher
+  @Test (priority = 1)
+
+
+findElement() vs findElements()
+
+findElement() -> this method is used to locate/find a single web element
+if it doesn't find/locate it will throw NoSuchElementException.
+Return type is WebElement
+
+findElements() -> this method is used to locate/find multiple or list of web elements
+if it doesn't find/locate, it will not throw any exception, it just returns empty list. Return type is List<WebElement> of webElement.
+
+----------------------------------------------------------------
+
+TestNG Assertions:
+
+Assert Class comes from TestNG, that that hass static methods.
+Assertions allows us to do our verification
+between action and expected results
+If assertion passes, the will be now message displayed/printed on the console
+If assertion fails, it tells us what failed & why.
+
+Assert methods take 3 parameters:
+First is Actual result
+Second is Expected result
+Third is a message, the message will be printed if the assertion fails, if it passes the message will not be printed.
+The third parameter is optional.
+
+assertEquals() -> this method is used to verify if two given values are equal 
+
+assertTrue() -> this method takes boolean condiotion, and passes if it returns true
+example:   
+Assert.assertTrue(actualResul.equals(expectedResult),"Incorrect order date");
+
+Assert.assertTrue(5 == 5);
+
+assertTrue() -> it verifies boolean value, it can be Selenium or Java methods
+such as:
+isDisplayed()
+isEmpty()
+equals()
+isSelected()
+isEnabled()
+
+--------------------------------------------------
+
+Implicit Wait:
+
+Implicit wait is type waiting that is used to wait for certain/given time before throwing an exception.
+Syntax: driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+We set this one only once, every time findElement() method is used it will be applied and wait for the given time if drive cannot find the web element before it throws NoSuchElementException.
+
+Why do we use implicit wait?
+Sometimes it will take longer for web element to be available and we need to make the drive wait for the given time before it throws NoSuchElementException.
+
+Every time findElement() is used if the webdriver cannot locate the webElement, implicit wait trigers(applies).
+
+It wait until given for the web element to be available before it throws NoSuchElementException.
+
+
