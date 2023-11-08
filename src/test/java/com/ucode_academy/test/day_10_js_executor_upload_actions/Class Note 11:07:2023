@@ -1,0 +1,144 @@
+Class Note 11/07/2023
+
+Packa name -> day_10_js_executor_upload_actions
+
+Today's topic:
+
+TestNG -> 
+Hard Assert & Soft Assert, DependsOnMethods, Priority attribute, invoactionCount
+Select class
+Actions class
+upload
+JS Executor
+Alerts recap
+
+
+--------------------------------------------------------------------
+
+There are two type of assertions in TestNG, Hard Assert and Soft Assert
+
+Assert class is the hard assert that has static methods such assertTrue(), etc..
+Assertions that come from Assert class are called hard assert
+Hard assert/assertion stops the execution of your code where it fails, and goes to the next @Test if you  have any
+whatever steps we have after that failed assertion, will not be executed
+
+SoftAssert : Verify
+SoftAssert assert/assertion will Not stop the execution if it fails
+
+SoftAssert methods are Not Static, so we have to create and object, and call them through the object.
+
+
+syntax:
+SoftAssert soft = new SoftAssert();
+
+How do we/you know what step failed?
+We use assertAll() method to see failed result at the end
+
+Why do you/we need to use SoftAssert?
+When you want to run/execute the remain code even if any assertions fail, you can use SoftAssert/Verify
+
+
+Assert.fail() -> to fail the hard assetion explicitly
+soft.fail(() -> to fail softAssertion explicitly
+
+-----------------------------------------------------------------
+
+Priority -> this attribute/helper is used to prioritize the execution of your tests. For example if we have 10 differents @Tests in one class, we priritize which one to run first, which one to run second, etc...
+@Test(priority)
+
+
+DependsOnMethods -> This is used to depend one method/test on another method.
+For example if we want cetain test to depend on other tests, we can create set/create condition with "dependsOnMethods" keywork. 
+Syntax: @Test(dependsOnMethods = "test name")
+
+The test with "dependsOnMethods" will execute only if the the other test passes, the test that it depends on.
+
+example:
+
+@Test
+public void login(){ Lets say this is login to Amazon
+	
+}
+If login fails, makePurchase will Not run, because it depends on login.
+It will run if login passes
+
+@Test (dependsOnMethods)
+public void makePurchase(){ 
+	
+}
+
+How to run one test 10 time without using any loop?
+
+If you want to run your test or tests for a number of times without any loop,
+you can use @Test (invocationCount = 10), and give the number how many times you want to run it.
+
+
+---------------------------------------------------------------------
+
+Dropdowns:
+There are two type of dropdowns:
+
+1: Select dropdowns: created using <select> tag in HTML
+
+<select>
+<option value="attribute value"> Text </option>
+<option value="attribute value"> Text </option>
+</select>
+
+2: HTML dropdowns: These dropdowns are not created using <select> tag.
+
+These dropdowns are handled just like any other web elements
+You don't need any class to handle HTML Dropdowns.
+
+How to handle <select> dropdowns?
+
+
+We use Select class that comes from Selenium to handle select dropdowns.
+
+1: We need to locate the dropdown like any other web element
+2: We need to create an object from Select class
+3: We need to pass that located web element into Select(webElement)
+4. Use Selecte class methods to select from dropdown
+
+There are 3 ways to select from dropdown option:
+
+1: selectByVisibleText("Visible Text");
+2: selectByIndex(index/number);
+3: selectByValue("attribute value")
+
+
+
+
+TestBase/BaseClass/SeleleniumBase is the main class that takes care of all the commans such as setting up the driver, browser, quit driver, etc..
+We can inherit TestBase from any Test class and use all thes common actions
+
+Implicit wait:
+Implicit wait is used to instruct the web driver/driver to wait for the given time before it throws NoSuchElementException.
+Every time findElement() is used, if the web element is not available implicit wait applies and waits for given time for the web element to be available before it throws NoSuchElementException. As soon as it locates the web element, it doesn't wait for the remaining time
+driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+
+Select class methods:
+
+selectByVisibleText("Visible Text"); To select  by visible text 
+
+selectByIndex(index/number); To select by index
+
+selectByValue("value") To select by value
+
+getFirstSelectedOption(); 
+ To select the default values on the select dropdown
+ To get selected value after selection and option
+
+getOptions() 
+ This methos returns all the options from select dropdown as List of WebElements
+ Return type: List of WebElements
+
+
+getAllSelectedOptions();
+ This method returns all selected options as List of WebElements
+
+deSelectAll()
+ This method is used to deselect/unselect all selected option/all the option that are selected
+
+
