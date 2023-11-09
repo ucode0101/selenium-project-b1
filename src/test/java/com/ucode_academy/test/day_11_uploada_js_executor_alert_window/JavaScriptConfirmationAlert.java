@@ -19,7 +19,12 @@ public class JavaScriptConfirmationAlert extends TestBase {
 
         Alert alert = driver.switchTo().alert();
         // to click on Cancel button
-        alert.dismiss();
+        //alert.dismiss(); one way
+
+        //driver.switchTo().alert().dismiss(); another way
+
+        // to click on Ok button
+        alert.accept();
 
         WebElement result = driver.findElement(By.id("result"));
 

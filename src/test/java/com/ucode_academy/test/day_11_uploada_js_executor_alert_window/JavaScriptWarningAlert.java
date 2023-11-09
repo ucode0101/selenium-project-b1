@@ -17,6 +17,10 @@ public class JavaScriptWarningAlert extends TestBase {
         Thread.sleep(2000);
 
         Alert alert = driver.switchTo().alert();
+        String text = alert.getText();
+
+        System.out.println(text);
+
         alert.accept();
 
         WebElement result = driver.findElement(By.id("result"));
