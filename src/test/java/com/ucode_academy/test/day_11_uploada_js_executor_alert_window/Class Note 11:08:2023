@@ -1,0 +1,101 @@
+
+Class Note 11/08/2023
+
+Package name -> day_11_uploada_js_executor_alert_window
+
+
+Today's topic:
+
+Upload
+JS Executor
+Alert
+Iframe
+Wintdows/Tabs
+
+
+-------------------------------------------------
+
+Pop Up / Alert
+
+What is alert/pop up?
+
+Alert is smals message box/pop up which displays on screen notification to give
+the user some kind of information or ask for permission to perform certain action
+It may be also used for warning purpose
+
+2 type of Alert:
+
+1: HTML Alert, we just locate them using findElement() and click
+2: JavaScript Alert.
+
+There are 3 types of JavaScript alerts
+1. Warning/information alert (you have one button only, just accept)
+2. Confirmation alert (you have an option to say accept/decline)
+3. Prompt alert (they ask something from you)
+
+Syntax to Switch to Alert:
+
+Alert alert = driver.swithchTo().alert();
+
+alert.accept(); -> to accept the alert/warning. To click on OK button 
+alert.dismis(); -> to cancel the alert/warning. To clcik on Cancel button lert.getText(); -> to get the text from that is displayed on alert/warning
+
+
+How do you handle Java Sript Alerts?
+
+You swith the driver to alert and user accept() or dismis() methods to accept/OK or cancel the allert.
+
+There are two ways to handle JS Alerts:
+
+1. Alert alert = driver.swithchTo().alert();
+   And user any of the methods
+
+You can switch to alert and handle it directly
+2. driver.swithchTo().alert();
+
+
+------------------------------------------
+
+
+Iframe:
+
+Iframe is  HTML inside another HTML.
+
+HMTL main page can have multiple HTML pages, they are called iframe
+
+The driver is in the main frame/parent frame by default, and cannot locate any web element which are in other iframes.
+
+If we want  to locate the web element which is inside the iframe, we need to switch the driver to ifame first, and locate the web element
+
+How to switch to iframe:
+
+1. Locate the iframe like any other web element
+  driver.switchTo().iframe(iframe);
+
+2. To switch to iframe by index
+  driver.switchTo().iframe(index);
+
+3. To swithch to iframe by id (if it has id)
+  driver.switchTo().iframe("id");
+
+When we are in another frame we have to switch to main/parent frame by using:
+
+driver.switchTo().parentFrame(); it goes one step up if you have nested frame
+or
+driver.switchTo().defaultContent(); it always goes to main frame from any frame
+
+
+clear(); -> this method is used to clear existing text in the input field
+        -> to remove/clear inputs from any input field
+
+
+
+
+
+
+
+
+
+
+
+
