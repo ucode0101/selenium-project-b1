@@ -1,0 +1,115 @@
+Class Note 11/09/2023
+
+Package name -> day_12_js_exec_winodws_actions_upload
+
+Today's topic:
+
+util package
+Iframes (nested iframe)
+Upload
+Windows/Tabs
+Actions class
+Java Script Executor
+
+
+-------------------------------------------------------------
+
+utility/util package is the package where we create and store all our reusable classes and methods.
+
+----------------------------------------------------
+
+Iframe/Frame is HTML inside of another HTML.
+Iframe/frame are used to video, Map, Ads, etc..
+Iframe/Frames can be nested, One iframe can have one or more iframes inside it
+For Web Driver Each Iframe/Frame is a seperate wind/page, and the driver cannot locate any web element from different iframes/frames until we switch to that iframe
+
+To switch to iframe:
+
+1: Switch by frame ID
+2: Switch by Index
+3: Locate the irame as web element and switch 
+
+Syntax: driver.switchTo().frame(ID/Index/ WebElement)
+
+When you want to switch to nested, first you have to swithch to their parent frames, and swith to child frame.
+
+driver.switchTo.parentFrame(); It will switch the driver back to the parent frame
+
+driver.switchTo.defaultContent(); It will switch to the main/default frame from any frame or nested frame
+
+--------------------------------------
+
+Upload:
+How do you upload with Selenium WebDriver?
+
+You need to locate upload/choose file element, and you sendKey("path to your file"),
+and give the path to the file as String
+
+
+Download: 
+How do you download with Selenium WebDriver?
+
+You can find downloadable link with Selenium WebDriver and click on it to download, but you cannot verify if it was downloaded or not.
+You can
+--------------------------------------------------------
+
+Windows/Tabs:
+
+For Selenium there is no difference between Window or tab
+Every tab/window is seperate window for selenium
+Selenium WebDriver can only focus and control only one window/tab at a time
+
+In order to work in different window/tab that was opened by Selenium WebDriver, we need to switch the driver to that window/tab.
+
+We can switch to tab/wind using Window handles
+For each window/tab a random generate unique "window handle" is created
+Each time we open a new window/tab using selenium web driver it create a unique "window handle" for that specific window/tab.
+We can use these "window hanldes" to switch between windows/tabs if we are working with multiple windows/tabs.
+
+
+There two methods that we use to get window handles:
+
+1: getWindowHandle(); 
+It will return the unique window handle  of the current window/tab that the driver is in. Return type String, we can store it in a String variable
+
+Syntax:  String mainWindow = driver.getWindowHandle();
+
+
+
+2: getWindowsHandles(); 
+It will return Set of all "Window handles" that were open by selenium web driver.
+Return type Set<String> of string, we can store them in a Set<String>
+
+Syntax: Set<String> allWindowHandles = driver.getWindowHandles();
+
+
+We can only switch to one Window/tab at a time
+
+
+---------------------------------------------------------------
+
+Actions Class:
+
+Actions class has methods that allow us to do advance mouse and keywboard actions
+such as:
+-clickAndHold()
+-dragAndDrop()
+-moveToElement()
+-contextClcik() (right click)
+
+First We need to create and object/instance of Actions class, and pass the driver into the constructor as an argument/parameter
+Syntax: Actions action = new Actions(driver);
+Then we use instance of of Actions class to call those methods
+
+After calling/using any method from Actions class it must end with perform() method.
+
+
+
+
+
+
+
+
+
+
+
