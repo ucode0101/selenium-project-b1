@@ -1,9 +1,8 @@
-package com.ucode_academy.test.day_11_uploada_js_executor_alert_window;
+package com.ucode_academy.test.day_11_js_alerts_iframes;
 
 import com.ucode_academy.base.TestBase;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 public class JavaScripPromptAlert extends TestBase {

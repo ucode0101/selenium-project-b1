@@ -1,4 +1,4 @@
-package com.ucode_academy.test.day_11_uploada_js_executor_alert_window;
+package com.ucode_academy.test.day_11_js_alerts_iframes;
 
 import com.ucode_academy.base.TestBase;
 import org.openqa.selenium.By;
