@@ -1,4 +1,4 @@
-package com.ucode_academy.test.day_13_actions_synchronization_js_exec;
+package com.ucode_academy.test.day_13_actions_js_executor;
 
 import com.ucode_academy.base.TestBase;
 import org.openqa.selenium.By;

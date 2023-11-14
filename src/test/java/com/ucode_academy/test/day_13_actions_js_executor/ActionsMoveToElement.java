@@ -1,11 +1,10 @@
-package com.ucode_academy.test.day_13_actions_synchronization_js_exec;
+package com.ucode_academy.test.day_13_actions_js_executor;
 
 import com.ucode_academy.base.TestBase;
 import com.ucode_academy.utility.Waits;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
