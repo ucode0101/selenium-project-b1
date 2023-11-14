@@ -1,0 +1,180 @@
+
+Class Note 11/13/2023
+
+Package name -> day_13_actions_synchronization_js_exec
+
+Today's topic:
+
+Actions class
+
+Synchronization (Implicit wait, explicit wait)
+
+Javascript Executor
+
+Create custom methods (if we have enough time)
+
+==============================================
+
+Actions Class:
+
+Actions class comes from Selenium  helps us to do advance mouse and keyboard actions such as hover over, double click, drag and drop, context(right) click, and more.
+
+In order order to use methods from actions class, we need to create an object of Actions, and pass driver instance into actions class Constructor and use/call all those methods through the object.
+
+Whenever we call any method from actions class, we need to use perform() otherwise it will not perform the action.
+
+example: action.doubleClick().build().perform() -> until selenium 3
+example: action.doubleClick().perform() -> starting from selenium 3, you don't do call build() method before perform method
+
+Create an object of Actions class:
+
+Actions actions = new Actions(driver);
+
+contextClick(web element); -> 
+this method take web element as an argument and performs context(right) click on it
+
+
+doubleClick(web element); ->
+This method takes web element as an argument and performs double click on it
+
+moveToElement(web element); ->
+This method takes web element as an argumen and performs hover over 
+
+
+dragAndDrop(elemnt, TargetElement);
+This method takes 2 web elements as arguments, and drag and drops first element into second element. First element is the source and Second element is the target.
+It drag and drops source into target
+
+
+----------------------------
+
+CSS Selector review:
+To locate web element by CSS Selector using tag and ID:
+tag#idValue -># hashtag after the tag name stands for ID and we provide idValue when using using css.
+example: 
+div#droptarget -> it looks for div tage with ID value of 'droptarget'
+
+To locate web element by CSS using tag name and class
+tag.classValue -> dot(.) stands for class and we give class value
+example:
+div.k-header 
+
+
+To locate by CSS Selector tag anme, attribute and attribue value
+
+div[data-role=droptarget]
+
+-----------------------------------------------
+
+Actions class also allows us to peform keyboard actions, scroll up and down and more.
+
+
+sendKeys(Keys.PAGE_DOWN) -> this method allows us to scroll the page down(not all the way dow to the end)
+
+ actions.sendKeys(Keys.END).perform(); -> this method is used to scroll the page all the down
+
+To perform Keyboard actions we need to use keyDown(Keys.ENUM) and pass Keys as an argument.
+Example:
+actions.keyDown(Keys.SHIFT).sendKeys(element, "hello").perform();
+
+The "hello" will be in upper case with the help of keyDown(Keys.SHIFT)
+
+Make sure to use keyUp(Keys.ENUM) whenever you use keyDown(Key.ENUM).
+
+keyUp(Keys.SHIFT) is used to release the key
+
+keyUp(Keys.SHIFT) and keyDown() are used to hold and release the key
+
+
+How do you  type in Upper case in selenium?
+we can you usekeyDown(Keys.SHIFT).sendKeys(element, "hello").perform()
+
+How do you hit enter once you sendKey into the search box?
+we use Keys.ENTER inside of sendKeys() method
+
+element.sendKeys("Hello"+Keys.ENTER);
+
+Keys.ENUM:
+We can use it not only with actions, but we can also use in sendKeys() 
+But mostly we will be using Keys.ENTER in sendsKey() method to hit enter after enter some text in the box
+
+If you want to perform advance mouse or keyboard actions, use Actions class that provide all the mouse and keyboard actions.
+
+
+
+--------------------------------------------------------
+
+Javascript Executor:
+
+
+This interface allows us to execute JavaScrip code in our selenium code
+Javascript executor interface in Selenium allows us/you to execute JavaScript
+code from you selenium script/code.
+
+When you need to intercat with web element using JavaScript such as clicking on hidden web element, you can use JavaScript executor.
+for example When web element is hidden click() method cannot interact/click on on it, in scenario/case we can use JavaScrip Executor. You can use JavaScript executor to click on any web element, not only hidden one. We can do more with JavaScript executor such as scroll down/up, move to element, and more.
+
+Syntax:
+
+JavascriptExecutor js = (JavascriptExecutor) driver;
+
+executeScript("javascript code", webElement); -> this method takes JavaScript code as a string, and web element to perform the action
+
+example:
+
+executeScript("arguments[0].click();",addRemove); -> this method performs click action on the given web element
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
