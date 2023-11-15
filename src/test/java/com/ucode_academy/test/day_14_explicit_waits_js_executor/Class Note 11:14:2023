@@ -1,0 +1,118 @@
+
+Class Note 11/14/2023
+
+Package name day_14_waits_testng_reports_parallel
+
+
+Today's topic:
+
+Javascript Executor continue
+
+Synchronization (Implicit wait, explicit wait, Fluent wait)
+
+TestNG -> group tests, generate html report, parallel testing
+
+Selenium Exceptions (if we have enough time)
+
+-------------------------------------------------------------
+
+JavaScript executor is an Interface that come from Selenium
+and it allows to executor javascript code in our Selenium.
+
+We need to cast WebDriver type to JavaScript executor type.
+
+syntax: 
+JavaScriptExecutor js = (JavaScriptExecutor) driver;
+
+We pass javascript code as a string into the method that we call from JavaScriptExecutor.
+
+We can use JavaScriptExecutor to interact with web elements such click, move to elemnt as we do with selenium webdriver.
+
+Why do we/you use JavaScriptExecutor ?
+
+When a web element is hidden Selenium web driver cannot interact with such as clicking, in this case we can use JavaScriptExecutor to click on a web element.
+
+If a web element is hidden, how do you click on it?
+We use JavaScriptExecutor to click on hidden web elements.
+
+Sometimes the web elelement is presenet but not visible (hidden), so in thise case when we try to get the text of the web element, we would not get any exceptions, but we don't get the of the web element using getText() method.
+
+
+To get the text of hidden web element using JavaScriptExecutor
+ JavascriptExecutor js = (JavascriptExecutor) driver;
+ executeScript("return arguments[0].innerHTML;",hiddenElement).toString();
+
+String text3 = js.executeScript("return arguments[0].innerHTML;",hiddenElement).toString();
+
+
+To click on Web element using JavaScriptExecutor
+
+js.executeScript("arguments[0].click();",element);
+
+To scroll to the specifi web element using JavaScriptExecutor
+
+js.executeScript("arguments[0].scrollIntoView(true);",web element);
+
+Sometimes we need to scroll the page up, down, or somewhere in the middle so click/intergact with web element. In this case we can use executeScript("arguments[0].scrollIntoView(true);",web element); to exactly to that web element.
+
+
+---------------------------------------
+
+Synchronization (Implicit wait, explicit wait, Fluent wait)
+
+
+Synchronization is the challanging part of Selenium web driver, because sometimes it takes longer for some web elements to be clickable, available, visible and casues our automation to fail and we get different types of exceptions. So Synchronization is important to make sure we give different wait in different part of our code to avoid failure.
+
+All Execption in Selenium are run time/uncheked execeptions
+All selenium exceptions are run time/unchecked
+
+
+-------------------------------------------------------------
+
+Implicit wait vs Explicit wait
+
+Implicit wait is set only once, and it will be triggered/applied everytime findElement() method is used if the element is not available.
+
+Explicit wait, we create an object of WebDriverWait class, and call it explicitly for specific web element with specific condtions. Explict wait doesn't depend on implicit wait
+
+Syntax:
+
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+alertIsPresent(); -> this method doesn't take any argument, and wait for javascript alert to be present
+wait.until(ExpectedConditions.alertIsPresent()).accept();
+
+elementToBeClickable(element); -> this method takes web element/btn and waits for the element to be clickable
+
+wait.until(ExpectedConditions.elementToBeClickable(submitBtn))
+
+
+visibilityOf(element); -> this method is used to wait for visibility of web element
+
+wait.until(ExpectedConditions.visibilityOf(elemetn));
+
+visibilityOfElementLocated(By.xpath("xpath"))); -> This method is used to wait for visibility of web element, but instead of locating web element by locator, you can provide the web element directly. 
+
+wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='finish']/h4")));
+
+
+invisibilityOf(element); -> this method is used to wait for invisibility of given web element. This method works the opposite of visibilityOf() method
+
+wait.until(ExpectedConditions.invisibilityOf(loading));
+
+
+wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("xpath")));
+-> this method works the opposite of isibilityOfElementLocated(By.xpath("xpath")
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,14 +1,11 @@
-package com.ucode_academy.test.day_14_waits_testng_reports_parallel;
+package com.ucode_academy.test.day_14_explicit_waits_js_executor;
 
 import com.ucode_academy.base.TestBase;
 import com.ucode_academy.utility.Waits;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
 
 public class JavaScriptExecutorScrollUpDown extends TestBase {
 

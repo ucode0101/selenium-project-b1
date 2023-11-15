@@ -1,4 +1,4 @@
-package com.ucode_academy.test.day_14_waits_testng_reports_parallel;
+package com.ucode_academy.test.day_14_explicit_waits_js_executor;
 
 import com.ucode_academy.base.TestBase;
 import org.openqa.selenium.By;
