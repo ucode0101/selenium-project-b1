@@ -1,0 +1,134 @@
+
+Class Note 11/15/2023
+
+Packag name -> day_15_singleton_testng_parallel
+
+Today's topic:
+
+configuration.properties
+Singleton driver/Singleton Design Patern
+Run test in different browser
+Run chrome-headless 
+
+TestNG:
+group tests, generate html report, parallel testing, testng.xml file
+
+Selenium Exceptions
+
+-----------------------------------------------
+
+config/configuration.properties: The .properties file is used to store all the data that wee need for testing, such username and password, browser, URL etc..
+It is mainly for configuration
+We can use this to configure the environment, store credentials, etc.. 
+
+To create .properties file:
+
+1. Right click on project name
+2. New -> file -> file name -> configuration.propertie
+
+in the .properties file we store information based on key and value.
+for example googleUrl="www.google.com"
+
+Reading/Getting the data from .properties file:
+1. Create a Java class -> ConfigReader.java
+2. Create the path of the file
+3. Properties Object
+4. Opent the file using FileInputString
+5. Load the file into the properties object
+6. Read/get the values using getProperty() method
+
+
+
+
+Why do you/we use and store data in .properties file?
+
+Image you have 100 test cases, and you need to run them in different 
+environment/url you need to go to each test and change the url manually.
+.properties file allows us to our data in one central place and control from one place.
+
+
+
+----------------------------------------------------------
+
+
+Singleton Design Pattern, aslo called Singleton:
+
+Singleton Design Pattern is the approach to use only one instance/object for the whole project, and prevent creating an instance/object of that class by giving private contstrucor. 
+
+The whole idea of Singleton Design Pattern is to use one instance of the class for the whole project, in order to prevent creating an object of singleton class we have to give private constructor
+
+In our case we make our driver singleton and make sure to one instance of the driver for the whole project. 
+
+In our case we will have a Driver utill which will have one intitial set and we make sure to have only one instance.
+
+How and where to Create Singleton Desgin Pattern/the driver singleton
+
+In utill package:
+
+1. Create a clss name -> Driver
+2. Create private Constructor
+3. Create private static WebDriver driver
+4. create public static getDriver method (getter method)
+5. Use if statement to set the driver based on the condition
+
+---------------------------------------
+
+TestNG - group tests:
+
+@Test(groups="group name"); -> This will allows us to group and run our tests as group.
+
+We can group multiple tests using and run them as a group using testng.xml file
+
+testng.xml file -> allows us to run our tests as group, to run classes, method, test in paralle, it also allows us to include and exclude certain methods, tests, classes. 
+
+How to create testng.xml file:
+Option 1: got to setting -> plugins -> and search for "Creat TestNG XML" install/Enable the plugin. and follow the steps:
+-> Right click on your project, any package or any class and select Creat TestNG XML option, it will create testng.xml file.
+You can modify/update testng.xml file based on your need
+
+
+Option 2:
+We/you can create a file name it testng.xml
+
+
+When you group your tests, and use that group name to run them from testng.xml,
+you tests can be in any package or class as long as you have the right path.
+If you run your tests by group name, you should give the path to all you packages.
+
+
+-------------------------------------------
+
+Parallel Testing:
+
+Parallel testing is when you increase the number of machine/tester to run multiple tests parallel/at the same time decrease the execution time.
+For example if one person test 3 test cases if each takes 5 minutes, that person needs 15 minutes to complete. If we increase the number of testers to 3, it will take 5 minutes to finish because each person take one test and they do parallel testing.
+
+If you have 3 test and run them one at a time in one browser, it will take minutes per test total of 6 minute to complete 3 tests. If you run them in parallem in 3 browser at the same time, it will take 2 minutes to complete
+
+-----------------------------------------
+
+We can run classes, methods in parallel
+
+We need to set parallel attribute and thread-count and give the number:
+<suite name="Test Suit" parallel="methods" thread-count="3">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

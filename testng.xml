@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test Suit" parallel="methods" thread-count="3">
+    <test verbose="2" preserve-order="true" name="Test">
+        <groups>
+            <run>
+                <include name="test1"/>
+
+            </run>
+        </groups>
+        <packages>
+            <package name="com.ucode_academy.test.*"/>
+        </packages>
+
+</test>
+</suite>
