@@ -21,7 +21,7 @@ public class DataProviderTest {
 
     }
 
-    @Test(dataProvider = "TestData" )
+    @Test(dataProvider = "TestData", groups = "test3")
     public void testInMultiEnvironment(String url){
         Driver.getDriver().get(url);
 

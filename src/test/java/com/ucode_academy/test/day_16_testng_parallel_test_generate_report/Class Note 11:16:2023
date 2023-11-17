@@ -1,0 +1,201 @@
+
+Class Note 11/16/2023
+
+Package name -> day_16_testng_parallel_test_generate_report
+
+Today's topic:
+
+TestNG: 
+Parallel testing, DataProvider, Generate Test Report, expectedExceptions
+Basic Auth/Authorization
+
+Exceptions in Selenium 
+
+-----------------------------
+
+Basi Auth:
+
+In Selenium We handle Basic Auth by including/attaching username and password in the URL. https://username:password@the-internet.herokuapp.com/basic_auth
+
+What is basic auth?
+
+
+Some website/application may require basic auth to make sure that user is authorized to use the website/application. 
+
+------------------------------------------------------------
+
+Singleton Design Pattern 
+->To make sure we one driver instance for the whole project. 
+
+Advantage of Singleton Design Pattern is to make sure no additional instances are created.
+
+ConfigReader class -> is used to read/get data from .properties file dynamically.
+
+How to create .properties file:
+Right on your project name -> new -> file -> configuration.properties.
+configuration.properties also named data.properties or config.properties:
+It is used to store all our data such as usernames & passwords, browser names, URL, and other testing data base on key=value. It central place where we store and manage the data. 
+
+We have a class named ConfigReader that has getProperty(key) method, and it's used to get/read data from the .properties file. We just pass key value in 
+getProperty(key) method and it returns its values from the .properities file.
+
+
+testng.xml -> 
+-Used to run classes, methods in prallel
+-Include/Exclued groups, classes, method
+We use @Test(groups="name") and then we use that group name to include specific tests and run them.
+--------------------------------------------------------
+
+Parallel testing: 
+-> To increase the number of machines/tester to minimize execution time
+
+TestNG XML/test.xml file allows us to run our Classes, methods/test in parallel to minimize the execution time.
+In order to run tests in parallel in TestNG, we need to use @Test(groups="name")
+and provide the name in testng.xml in <include name="groupName"> tag
+
+The advatage of parallel test:
+if we  run 100 tests in one, 1 test takes one minute it would be 100 minute tor complete 100 test. But if we run them in 10 browsers parallely it would take 10 minutes to complete them.
+
+How to run parallel in TestNG?
+We use parallel attribute and thread-count in suite tag:
+<suite name="Test Suit" parallel="methods" thread-count="3">
+
+
+TestNG DataProvider:
+@DataProvider(name="name") -> This marks a method as a data source
+
+This annotation allows us to provide data to our test methods.
+It is usefull when you want to run the same test with different set of data
+for example to run the same test in different URL/Environment, to run the same test with different usernames.
+
+@DataProvider allows us to Parameterize our test:
+Parameterization ->  allow us pass the data from @DataProvider and run/execute the same test with different data sets by taking the data from @DataProvider 
+(data source).
+
+@DataProvider: -> 
+Parameterization allows us to take the data from the data source 
+(method with @DataProvider) and run the same test with different data sets.
+
+-------------------------------------------------------------
+
+expectedExceptions:
+@Test (expectedExceptions = ExcecptionName.class);
+
+expectedExceptions -> It is used to tell/let testNg know that we are expected the specified exceptions, so it can ignore that exception (not to fail when expected Exception occurs/happens)
+The expectedExceptions can be any Exceptions not only selenium exceptions
+It only applies to Run Exceptions/Unchecked Exceptions
+
+Why do you/we use expectedExceptions ?
+When we/you know or expected some exceptions to happen, we let TestNG know that we are expecting that specified Exception.
+
+
+----------------------------------------------------------
+
+Test Report / Generate Test Report
+
+Test Report:
+When we run/execute our tests/test case manually or automation, we the report so we can know the rusult of our test. When we execute/run our tests manually we create the test report in either Excell, Jira or any other documents. 
+Test Report is the result/prove of your tests that shows how many tests passed, how many fialed etc.. 
+
+Generate Test Report:
+TestNG allows us to generate test report of our test execution.
+TestNG provides multiple Test Report types:
+
+How to Generate Test Report in TestNG?
+
+1. In IntelliJ IDEA click  Run
+2. Click on Edit Configuration
+3. Click on Listners -> Click on "+" icon
+4. In the search box type "TestHTMLReporter"
+5. Select it -> click on Apply -> click on OK
+6. Run your test from testng.xml file
+It will create "test-output" directory/folder by default 
+and store test reports in it.
+To open/view the test report go to "test-output" open reportName.html in browser
+
+NOTE:
+We can give multiple attributes for one test
+when we use @Test (priority=1, groups="groupName", dataProvider = "TestData")
+
+-----------------------------------------------------------
+
+Exceptions in Selenium:
+
+NoSuchElementException :
+-> When the driver cannot locate/find the web element (for any reason)
+-> NoSuchElementException: no such element: Unable to locate element
+
+NoSuchWindowException:
+-> When we use switchTo().window("windoHandle"), and it cannot locate/find the window/tap to switch
+-> org.openqa.selenium.NoSuchWindowException: no such window
+
+
+NoSuchFrameException:
+-> When we use switchTo().frame(frame), and it cannot locate/find the frame
+->org.openqa.selenium.NoSuchFrameException: No frame element found by name or id  
+
+NoAlertPresentException: 
+-> When we switch to alert, and try to handle the alert,
+   but the alert is not present
+-> org.openqa.selenium.NoAlertPresentException: no such alert
+
+ElementNotVisibleException:
+-> When we try to interact with web lement such clicking, the web element is
+   present in the DOM, bot visible/displayed
+
+
+StaleElementReferenceException:
+-> When we try to intercat with web element, but the reference to an element is  
+   no longer valid because the element is no longer part of the DOM.
+   For example when we locate the web element and we refresh the page/the page gets refreshed the web element is the, but it is outdated.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

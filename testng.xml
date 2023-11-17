@@ -5,7 +5,7 @@
     <test verbose="2" preserve-order="true" name="Test">
         <groups>
             <run>
-                <include name="dailyTest"/>
+                <include name="test3"/>
 
             </run>
         </groups>
