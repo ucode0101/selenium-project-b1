@@ -5,7 +5,7 @@
     <test verbose="2" preserve-order="true" name="Test">
         <groups>
             <run>
-                <include name="test3"/>
+                <include name="dailyTest"/>
 
             </run>
         </groups>
@@ -15,4 +15,7 @@
         </packages>
 
 </test>
+    <listeners>
+        <listener class-name="org.testng.reporters.FailedReporter"/>
+    </listeners>
 </suite>

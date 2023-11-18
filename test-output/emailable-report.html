@@ -9,12 +9,30 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Test Suit</th></tr>
-<tr><td><a href="#t0">Test</a></td><td class="num">3</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">31,717</td><td>test3</td><td></td></tr>
+<tr><td><a href="#t0">Test</a></td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">10,061</td><td>dailyTest</td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Test Suit</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="3">com.ucode_academy.test.day_16_testng_parallel_test_generate_report.DataProviderTest</td><td><a href="#m0">testInMultiEnvironment</a></td><td rowspan="3">1700189208249</td><td rowspan="3">13403</td></tr><tr class="passedeven"><td><a href="#m1">testInMultiEnvironment</a></td></tr><tr class="passedeven"><td><a href="#m2">testInMultiEnvironment</a></td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Test Suit</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.ucode_academy.test.day_16_testng_parallel_test_generate_report.ParallelTesting</td><td><a href="#m0">facebookTest</a></td><td rowspan="1">1700227275731</td><td rowspan="1">3776</td></tr><tr><th colspan="4">Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">com.ucode_academy.test.day_16_testng_parallel_test_generate_report.ParallelTesting</td><td><a href="#m1">amazonTest</a></td><td rowspan="1">1700227275731</td><td rowspan="1">10027</td></tr><tr class="passedeven"><td><a href="#m2">googleTest</a></td><td rowspan="1">1700227275731</td><td rowspan="1">7933</td></tr></tbody>
 </table>
-<h2>Test</h2><h3 id="m0">com.ucode_academy.test.day_16_testng_parallel_test_generate_report.DataProviderTest#testInMultiEnvironment</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>https://www.amazon.com/</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">com.ucode_academy.test.day_16_testng_parallel_test_generate_report.DataProviderTest#testInMultiEnvironment</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>https://www.google.com/</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">com.ucode_academy.test.day_16_testng_parallel_test_generate_report.DataProviderTest#testInMultiEnvironment</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>https://www.facebook.com/</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Test</h2><h3 id="m0">com.ucode_academy.test.day_16_testng_parallel_test_generate_report.ParallelTesting#facebookTest</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Failing facebook
+	at org.testng.Assert.fail(Assert.java:111)
+	at com.ucode_academy.test.day_16_testng_parallel_test_generate_report.ParallelTesting.facebookTest(ParallelTesting.java:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">com.ucode_academy.test.day_16_testng_parallel_test_generate_report.ParallelTesting#amazonTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">com.ucode_academy.test.day_16_testng_parallel_test_generate_report.ParallelTesting#googleTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>
